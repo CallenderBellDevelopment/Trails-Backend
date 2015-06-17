@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.callenderbell.trails.json.JSONObject;
 
-public class ResponseUtils {
+public class TRSResponseUtils {
 	
 	public static final String MIME_TEXT = "text/html";
 	public static final String MIME_JSON = "application/json";

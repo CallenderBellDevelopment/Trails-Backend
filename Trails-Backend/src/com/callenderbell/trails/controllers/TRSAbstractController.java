@@ -9,7 +9,7 @@ import com.callenderbell.trails.constants.*;
 import com.callenderbell.trails.json.JSONArray;
 import com.callenderbell.trails.json.JSONException;
 import com.callenderbell.trails.json.JSONObject;
-import com.callenderbell.trails.utils.ResponseUtils;
+import com.callenderbell.trails.utils.TRSResponseUtils;
 
 public abstract class TRSAbstractController extends AbstractController {
 	
@@ -17,26 +17,26 @@ public abstract class TRSAbstractController extends AbstractController {
     	if (contents == null)
     		return generateErrorJSONResponseNotFound(response);
     	
-		ResponseUtils.sendOKByteResponse( response, contents );
+		TRSResponseUtils.sendOKByteResponse( response, contents );
     	
     	return null;
     }
 	
 	// API specific methods.
     public ModelAndView generateOKJSONResponse( HttpServletResponse response, JSONObject json ) {
-    	ResponseUtils.sendOKJSONResponse( response, json );
+    	TRSResponseUtils.sendOKJSONResponse( response, json );
     	
     	return null;
     }
     
     public ModelAndView generateOKJSONResponse( HttpServletResponse response, String json ) {
-    	ResponseUtils.sendOKJSONResponse( response, json );
+    	TRSResponseUtils.sendOKJSONResponse( response, json );
     	
     	return null;
     }
     
     public ModelAndView generateErrorJSONResponse( HttpServletResponse response, JSONObject json, int statusCode ) {
-    	ResponseUtils.sendErrorJSONResponse( response, json, statusCode );
+    	TRSResponseUtils.sendErrorJSONResponse( response, json, statusCode );
     	
     	return null;
     }
