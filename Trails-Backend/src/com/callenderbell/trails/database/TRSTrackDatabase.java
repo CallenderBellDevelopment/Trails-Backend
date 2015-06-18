@@ -1,5 +1,7 @@
 package com.callenderbell.trails.database;
 
+import java.util.ArrayList;
+
 import com.callenderbell.trails.model.TRSTrack;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
@@ -30,8 +32,7 @@ public class TRSTrackDatabase {
 		return (long)(dataStore.put(e).getId());
 					
 	}
-	
-	
+		
 	public static TRSTrack getTrack(long trackId) throws EntityNotFoundException 
 	{
 		
@@ -56,5 +57,25 @@ public class TRSTrackDatabase {
 		
 	}
 	
-
+	public static ArrayList<TRSTrack> getAllTracks()
+	{
+		
+		Query query 		   = new Query("Track");
+		
+		PreparedQuery pq 	   = dataStore.prepare(query);
+		
+		ArrayList<TRSTrack> returnList = new ArrayList<TRSTrack>();
+		
+		for (Entity e: pq.asIterable())		
+		{
+			if (e != null){
+				returnList.add(new TRSTrack(e));
+			}			  			
+		}		
+		
+		return returnList;
+		
+	}
+	
+	
 }

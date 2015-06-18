@@ -59,6 +59,8 @@ public class TRSUploadController extends TRSAbstractController {
 
 			if (tId > 0) {
 				// Now upload mp3 to cloud store
+				
+				System.out.println("Before!");
 
 				GcsService gcsService = GcsServiceFactory.createGcsService();
 				GcsFilename filename = new GcsFilename("TRSBucket", tId+"");
@@ -76,7 +78,7 @@ public class TRSUploadController extends TRSAbstractController {
 				
 				//Test read
 				
-				System.out.println(filename.toString());
+				System.out.println("After - " + filename.toString());
 				
 
 				
