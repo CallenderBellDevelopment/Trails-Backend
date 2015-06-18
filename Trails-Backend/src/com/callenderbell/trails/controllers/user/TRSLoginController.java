@@ -83,7 +83,7 @@ public class TRSLoginController extends TRSAbstractController {
 			else
 				return generateErrorJSONResponseAuthorizationNeeded(response);
 		} catch ( Exception e ) {
-			e.printStackTrace();
+			
 			return generateErrorJSONResponseServerError(response, e.getMessage());
 		}
 		

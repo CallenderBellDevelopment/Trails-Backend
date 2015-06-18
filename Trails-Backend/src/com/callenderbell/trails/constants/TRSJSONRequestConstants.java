@@ -2,6 +2,17 @@ package com.callenderbell.trails.constants;
 
 public class TRSJSONRequestConstants {
 
+	
+	// Track
+	public static final String JSON_TRACK_ID = "trackId";
+	public static final String JSON_TRACK_TITLE = "title";
+	public static final String JSON_TRACK_GENRE = "genre";
+	public static final String JSON_TRACK_ARTIST = "artist";
+	public static final String JSON_TRACK_BASE64_MP3 = "base64_mp3";
+	public static final String JSON_TRACK_BPM = "bpm";
+	public static final String JSON_TRACK_MOOD = "mood";
+	
+	
 
 	// Users.
 	public static final String JSON_USER_ID = "userId";

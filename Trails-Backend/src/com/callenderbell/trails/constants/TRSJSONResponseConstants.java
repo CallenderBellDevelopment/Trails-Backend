@@ -10,4 +10,8 @@ public class TRSJSONResponseConstants {
 
 	// User
 	public static final String JSON_USER_USER = "user";
+	
+	// Track
+	public static final String JSON_TRACK_TRACK = "track";
+	
 }

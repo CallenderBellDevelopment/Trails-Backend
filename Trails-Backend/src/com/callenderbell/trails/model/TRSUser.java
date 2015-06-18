@@ -16,7 +16,6 @@ public class TRSUser {
 	{
 		id = (long)e.getKey().getId();
 		
-		System.out.println(e.getKey().getId());
 		
 		username = (String) e.getProperty("username");
 	    firstname = (String) e.getProperty("firstname");
