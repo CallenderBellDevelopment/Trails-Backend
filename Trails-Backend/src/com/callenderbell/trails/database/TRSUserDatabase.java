@@ -1,5 +1,7 @@
 package com.callenderbell.trails.database;
 
+import java.util.ArrayList;
+
 import com.callenderbell.trails.model.TRSSession;
 import com.callenderbell.trails.model.TRSUser;
 import com.google.appengine.api.datastore.DatastoreService;
@@ -67,6 +69,23 @@ public class TRSUserDatabase {
 		
 	}
 
+	public static ArrayList<TRSUser> getAllUsers() {
+
+		Query query = new Query("User");
+
+		PreparedQuery pq = dataStore.prepare(query);
+
+		ArrayList<TRSUser> returnList = new ArrayList<TRSUser>();
+
+		for (Entity e : pq.asIterable()) {
+			if (e != null) {
+				returnList.add(new TRSUser(e));
+			}
+		}
+
+		return returnList;
+
+	}
 	
 	public static TRSUser loginUser(String un, String pa)
 	{

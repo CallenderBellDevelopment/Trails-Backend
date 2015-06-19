@@ -14,4 +14,10 @@ public class TRSJSONResponseConstants {
 	// Track
 	public static final String JSON_TRACK_TRACK = "track";
 	
+	//Trails
+	public static final String JSON_TRAIL_USER_ID = "trailUserId";
+	public static final String JSON_TRAIL_CURRENT_TRACK_ID = "currentTrackId";
+	public static final String JSON_TRAIL_ID = "trailId";
+	public static final String JSON_TRAIL_PROGRESS = "progress";
+	
 }

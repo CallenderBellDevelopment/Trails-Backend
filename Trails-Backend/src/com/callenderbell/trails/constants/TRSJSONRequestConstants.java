@@ -3,6 +3,13 @@ package com.callenderbell.trails.constants;
 public class TRSJSONRequestConstants {
 
 	
+	//Trails
+	public static final String JSON_TRAIL_USER_ID = "trailUserId";
+	public static final String JSON_TRAIL_ID = "trailId";
+	public static final Object JSON_TRAIL_TRACK_ID = "trailTrackId";
+	
+	
+	
 	// Track
 	public static final String JSON_TRACK_ID = "trackId";
 	public static final String JSON_TRACK_TITLE = "title";
@@ -34,4 +41,5 @@ public class TRSJSONRequestConstants {
 	public static final String JSON_GENERIC_LATITUDE = "latitude";
 	public static final String JSON_GENERIC_LONGITUDE = "longitude";
 	public static final String JSON_GENERIC_ENCODED_IMAGE = "encodedImage";
+	
 }
