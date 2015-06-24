@@ -20,10 +20,15 @@ public class TRSTrailDatabase {
 	
 	public static TRSTrail startTrail(long userId, long trackId)
 	{
+		
+		// Create new entity for track with all required properties
+		
 		Entity e = new Entity("Trail");
 		
 		e.setProperty("trackId", trackId);
 		e.setProperty("progress",0);
+		
+		// If the data store add is success then return the TRSTrail added
 		
 		if (dataStore.put(e) == null)
 		{
@@ -34,11 +39,14 @@ public class TRSTrailDatabase {
 		
 	}
 	
-	public static TRSTrail joinTrail(long userId)
+	public static TRSTrail joinTrail(long userId, long leaderId)
 	{
+		// Create a key used in order to query the data store for the given trail via  user id
 		
-		Key k = KeyFactory.createKey("Trail", userId);
+		Key k = KeyFactory.createKey("Trail", leaderId);
 
+		// We want to filter on that key		
+		
 		Filter keyFilter = new FilterPredicate(Entity.KEY_RESERVED_PROPERTY,
 				FilterOperator.EQUAL, k);
 
@@ -46,12 +54,16 @@ public class TRSTrailDatabase {
 		
 		PreparedQuery pq = dataStore.prepare(query);
 		
+		// We should only get back a single trail as a user can only be in one trail at a time
+		
 		Entity trailResult          = pq.asSingleEntity();
 				
 		if (trailResult == null)
 		{
 			return null;
 		}
+		
+		// Now we create a new TrailUser entity for the user joining
 		
 		Entity e = new Entity("TrailUser");
 		e.setProperty("userId", userId);
@@ -68,6 +80,4 @@ public class TRSTrailDatabase {
 				
 	}
 	
-	
-
 }

@@ -24,6 +24,8 @@ public class TRSUserDatabase {
 	public static TRSSession getSession(long sessionId, long userId) 
 	{
 		
+		
+		
 		Filter sessionIdFilter = new FilterPredicate("sessionId", FilterOperator.EQUAL,sessionId);
 		Filter userIdFilter    = new FilterPredicate("userId", FilterOperator.EQUAL,userId);
 		

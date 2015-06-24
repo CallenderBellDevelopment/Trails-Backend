@@ -52,14 +52,15 @@ public class TRSJoinTrailController extends TRSAbstractController {
 						.getParametersMap(params);
 
 				// Get trail 'leader' id
-				long longTrailUserId = Long.parseLong(paramsMap
+				long longTrailLeaderUserId = Long.parseLong(paramsMap
 						.get(TRSJSONRequestConstants.JSON_TRAIL_USER_ID));
 							
 							
-				// Join user to the trail
+				// Get trail 'requester' user to the trail
 	            long longUserId = Long.parseLong( userId );
 				
-				TRSTrail joinResult = TRSTrailDatabase.joinTrail(longTrailUserId);
+				TRSTrail joinResult = TRSTrailDatabase.joinTrail(longUserId,
+						longTrailLeaderUserId);
 				
 				if (joinResult == null)
 				{

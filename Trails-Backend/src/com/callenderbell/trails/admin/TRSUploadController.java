@@ -12,6 +12,7 @@ import com.callenderbell.trails.constants.TRSJSONResponseConstants;
 import com.callenderbell.trails.controllers.TRSAbstractController;
 import com.callenderbell.trails.database.TRSTrackDatabase;
 import com.callenderbell.trails.json.JSONObject;
+import com.callenderbell.trails.model.TRSTrack;
 import com.callenderbell.trails.utils.TRSUtils;
 import com.google.appengine.tools.cloudstorage.GcsFileOptions;
 import com.google.appengine.tools.cloudstorage.GcsFilename;
@@ -51,9 +52,12 @@ public class TRSUploadController extends TRSAbstractController {
 
 			// First add the track to datastore
 
-			long tId = TRSTrackDatabase.addTrack(title, artist, genre, mood, bpm);
-
-			if (tId > 0) {
+			TRSTrack t = TRSTrackDatabase.addTrack(title, artist, genre, mood, bpm);
+			 
+			if (t != null) {
+				
+				long tId = t.id;
+			
 				// Now upload mp3 to cloud store
 				
 				GcsService gcsService = GcsServiceFactory.createGcsService();
